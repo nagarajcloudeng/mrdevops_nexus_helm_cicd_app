@@ -1,10 +1,13 @@
 pipline {
      agent any 
      stages {
-      stage ('sonar code qualatiy'){
+       stage ('sonar code qualatiy'){
          agent {
             docker {
                 image 'maven'
+
+            }
+         }
           steps {
               script{  
                    withSonarQubeEnv(credentialsId: 'sonar2') {
@@ -19,5 +22,3 @@ pipline {
          }
           
          }
-      }
-     }
